@@ -52,6 +52,28 @@ window.lightbox = GLightbox({
   }
 });
 
+// ── Mobile Nav Toggle ─────────────────────
+const navToggle = document.getElementById('navToggle');
+const navLinks = document.getElementById('navLinks');
+const navLinksItems = document.querySelectorAll('.nav-links a');
+
+if (navToggle && navLinks) {
+  navToggle.addEventListener('click', () => {
+    navToggle.classList.toggle('active');
+    navLinks.classList.toggle('active');
+    // Toggle body scroll
+    document.body.style.overflow = navLinks.classList.contains('active') ? 'hidden' : '';
+  });
+
+  navLinksItems.forEach(link => {
+    link.addEventListener('click', () => {
+      navToggle.classList.remove('active');
+      navLinks.classList.remove('active');
+      document.body.style.overflow = '';
+    });
+  });
+}
+
 // ── Sticky Nav ────────────────────────────
 const nav = document.getElementById('nav');
 lenis.on('scroll', ({ scroll }) => {

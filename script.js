@@ -175,9 +175,9 @@ interactables.forEach(el => {
 
 // ── About Section Counter Animation ───────
 (function counters() {
-  const stats = document.querySelectorAll('.stat strong');
-  const targets = [60, 5, 12];
-  const labels = ['60+', '5yr', '12M+'];
+  const stats = document.querySelectorAll('.stat-num');
+  const targets = [3, 2, 10];
+  const labels = ['3+', '2M+', '10+'];
 
   stats.forEach((el, i) => {
     ScrollTrigger.create({
@@ -354,6 +354,9 @@ gsap.utils.toArray('.section-label').forEach(label => {
         { id: 10, media_type: 'VIDEO', media_url: 'https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?q=80&w=600&auto=format&fit=crop', permalink: '#' },
         { id: 11, media_type: 'VIDEO', media_url: 'https://images.unsplash.com/photo-1470225620780-dba8ba36b745?q=80&w=600&auto=format&fit=crop', permalink: '#' },
         { id: 12, media_type: 'VIDEO', media_url: 'https://images.unsplash.com/photo-1459749411177-042180ce6742?q=80&w=600&auto=format&fit=crop', permalink: '#' },
+        { id: 13, media_type: 'VIDEO', media_url: 'https://images.unsplash.com/photo-1524511751214-b0a384dd9fac?q=80&w=600&auto=format&fit=crop', permalink: '#' },
+        { id: 14, media_type: 'VIDEO', media_url: 'https://images.unsplash.com/photo-1534438327276-14e5300c3a48?q=80&w=600&auto=format&fit=crop', permalink: '#' },
+        { id: 15, media_type: 'VIDEO', media_url: 'https://images.unsplash.com/photo-1506744038136-46273834b3fb?q=80&w=600&auto=format&fit=crop', permalink: '#' },
       ];
       renderFeed(mockData);
       renderVideoGrid(mockData);
@@ -366,15 +369,15 @@ gsap.utils.toArray('.section-label').forEach(label => {
 
     videoGrid.innerHTML = '';
     // Filter for videos or use all if no videos found
-    const videos = items.filter(item => item.media_type === 'VIDEO' || item.media_type === 'CAROUSEL_ALBUM').slice(0, 12);
-    const displayItems = videos.length > 0 ? videos : items.slice(0, 12);
+    const videos = items.filter(item => item.media_type === 'VIDEO' || item.media_type === 'CAROUSEL_ALBUM').slice(0, 15);
+    const displayItems = videos.length > 0 ? videos : items.slice(0, 15);
 
     displayItems.forEach((item, index) => {
       const card = document.createElement('div');
       // Sophisticated Bento layout pattern for 12 items
       let layoutClass = '';
-      if (index === 0 || index === 10) layoutClass = 'card--large';
-      else if (index === 1 || index === 5) layoutClass = 'card--tall';
+      if (index === 0 || index === 10 || index === 14) layoutClass = 'card--large';
+      else if (index === 1 || index === 5 || index === 9 || index === 13) layoutClass = 'card--tall';
       else if (index === 3 || index === 7 || index === 11) layoutClass = 'card--wide';
 
       card.className = `card ${layoutClass}`;
@@ -394,6 +397,10 @@ gsap.utils.toArray('.section-label').forEach(label => {
             <div class="card-overlay">
               <div class="play-btn">
                 <svg viewBox="0 0 24 24"><polygon points="5,3 19,12 5,21" /></svg>
+              </div>
+              <div class="card-info">
+                <h3>${title}</h3>
+                <p>${caption}</p>
               </div>
             </div>
           </div>

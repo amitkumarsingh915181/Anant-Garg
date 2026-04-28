@@ -40,7 +40,7 @@ window.lightbox = GLightbox({
   openEffect: 'fade',
   closeEffect: 'fade',
   slideEffect: 'fade',
-  moreLength: 0,
+  moreLength: 5000,
   skin: 'clean',
   plyr: {
     css: 'https://cdn.plyr.io/3.7.8/plyr.css',
@@ -386,8 +386,8 @@ gsap.utils.toArray('.section-label').forEach(label => {
 
       const mediaUrl = item.media_type === 'VIDEO' ? (item.thumbnail_url || item.media_url) : item.media_url;
       const videoUrl = item.media_url; // This is the .mp4 or image file
-      const caption = item.caption ? item.caption.substring(0, 80) : 'Visual Story';
-      const title = item.caption ? item.caption.split('\n')[0].substring(0, 30) : 'Untitled Story';
+      const caption = item.caption ? item.caption : 'Visual Story';
+      const title = item.caption ? item.caption.split('\n')[0] : 'Untitled Story';
       const num = (index + 1).toString().padStart(2, '0');
 
       card.innerHTML = `
@@ -434,7 +434,7 @@ gsap.utils.toArray('.section-label').forEach(label => {
       el.setAttribute('data-aos-delay', index * 100);
 
       const mediaUrl = item.media_type === 'VIDEO' ? (item.thumbnail_url || item.media_url) : item.media_url;
-      const caption = item.caption ? item.caption.substring(0, 100) : 'Instagram post';
+      const caption = item.caption ? item.caption : 'Instagram post';
 
       el.innerHTML = `
         <img src="${mediaUrl}" alt="${caption}" title="${caption}" loading="lazy" />

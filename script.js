@@ -317,7 +317,7 @@ gsap.utils.toArray('.section-label').forEach(label => {
   if (!videoGrid && !instaGrid) return;
 
   // Instagram Basic Display API Endpoint
-  const ACCESS_TOKEN = 'IGAAaG5UFyUBlBZAGFaaF9XRTRtRzgtb3NENjhIZAjh6TmdJWU81RS1ZAZAkdMTXlmWXhOdlIxOEVFMTVZATGZA6RThFSk1KLUxUTjliamV3RlJXWEQtbXhfaDFhYzNKV3F5YzFzTDBpOHIyNGJzbkVnZAlZA3NHlSd3JBTy1OQU5HVWMyVQZDZD';
+  const ACCESS_TOKEN = 'IGAAaG5UFyUBlBZAFl0YXZAOUVVQa0tOMmtvTEpJaHQ0YTFNR3lqSk55bXhLZAzZAnVTVCR0EwYTgyXzBUUldtdnZAacWZADUVdka25EVTZAUZA0F5QU9qelpTOUI0aU1QLUtqUXpIOS1qTHk5WWtpc0FyNElsZAXJkU2NySm1DRVFtOW1LNAZDZD';
   const API_URL = `https://graph.instagram.com/me/media?fields=id,caption,media_type,media_url,permalink,thumbnail_url,timestamp&access_token=${ACCESS_TOKEN}`;
 
   async function fetchFeed() {
